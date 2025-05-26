@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Not Listesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 40px;
+        }
+
+        table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Kayıtlı Tüm Notlar</h2>
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Öğrenci Adı</th>
+                    <th>Ders</th>
+                    <th>Not</th>
+                    <th>Tarih</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for puan in puanlar %}
+                <tr>
+                    <td>{{ puan.isim }}</td>
+                    <td>{{ puan.ders }}</td>
+                    <td>{{ puan.not_ }}</td>
+                    <td>{{ puan.tarih.strftime('%Y-%m-%d %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Kontrol Paneline Geri Dön</a>
+        </div>
+    </div>
+</body>
+
+</html>
